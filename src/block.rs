@@ -1,19 +1,19 @@
-use bevy::render::mesh::Indices;
 use bevy::prelude::*;
+use bevy::render::mesh::Indices;
 
 struct Side {
-    positions: Vec<[f32;3]>,
-    normals: Vec<[f32;3]>,
-    uvs: Vec<[f32;2]>,
+    positions: Vec<[f32; 3]>,
+    normals: Vec<[f32; 3]>,
+    uvs: Vec<[f32; 2]>,
     indices: Vec<u32>,
     enabled: bool,
 }
 
 #[derive(Clone)]
 pub struct Cube {
-    positions: Vec<[f32;3]>,
-    normals: Vec<[f32;3]>,
-    uvs: Vec<[f32;2]>,
+    positions: Vec<[f32; 3]>,
+    normals: Vec<[f32; 3]>,
+    uvs: Vec<[f32; 2]>,
     indices: Vec<u32>,
 }
 
@@ -23,8 +23,8 @@ pub fn generate_cube(enabled_faces: Option<Vec<usize>>) -> Cube {
         positions: vec![
             // top (facing towards +y)
             [-0.5, 0.5, -0.5], // vertex with index 0
-            [0.5, 0.5, -0.5], // vertex with index 1
-            [0.5, 0.5, 0.5], // etc. until 23
+            [0.5, 0.5, -0.5],  // vertex with index 1
+            [0.5, 0.5, 0.5],   // etc. until 23
             [-0.5, 0.5, 0.5],
         ],
         normals: vec![
@@ -34,14 +34,9 @@ pub fn generate_cube(enabled_faces: Option<Vec<usize>>) -> Cube {
             [0.0, 1.0, 0.0],
             [0.0, 1.0, 0.0],
         ],
-        uvs: vec![
-            [0.0, 0.0],
-            [0.0, 1.0],
-            [1.0, 1.0],
-            [1.0, 0.0],
-        ],
+        uvs: vec![[0.0, 0.0], [0.0, 1.0], [1.0, 1.0], [1.0, 0.0]],
         indices: vec![
-            0,3,1, 1,3,2, // triangles making up the top (+y) facing side.
+            0, 3, 1, 1, 3, 2, // triangles making up the top (+y) facing side.
         ],
         enabled: false,
     };
@@ -61,14 +56,9 @@ pub fn generate_cube(enabled_faces: Option<Vec<usize>>) -> Cube {
             [0.0, -1.0, 0.0],
             [0.0, -1.0, 0.0],
         ],
-        uvs: vec![
-            [0.0, 0.0],
-            [0.0, 1.0],
-            [1.0, 1.0],
-            [1.0, 0.0],
-        ],
+        uvs: vec![[0.0, 0.0], [0.0, 1.0], [1.0, 1.0], [1.0, 0.0]],
         indices: vec![
-            0,1,3,1,2,3 // bottom(-y)
+            0, 1, 3, 1, 2, 3, // bottom(-y)
         ],
         enabled: false,
     };
@@ -79,7 +69,7 @@ pub fn generate_cube(enabled_faces: Option<Vec<usize>>) -> Cube {
             [0.5, -0.5, -0.5],
             [0.5, -0.5, 0.5],
             [0.5, 0.5, 0.5], // This vertex is at the same position as vertex with index 2, but they'll have different UV and norma,
-                             // 
+            //
             [0.5, 0.5, -0.5],
         ],
         normals: vec![
@@ -87,20 +77,15 @@ pub fn generate_cube(enabled_faces: Option<Vec<usize>>) -> Cube {
             [1.0, 0.0, 0.0],
             [1.0, 0.0, 0.0],
             [1.0, 0.0, 0.0],
-            [1.0, 0.0, 0.0], 
+            [1.0, 0.0, 0.0],
         ],
-        uvs: vec![
-            [0.0, 0.0],
-            [0.0, 1.0],
-            [1.0, 1.0],
-            [1.0, 0.0],
-        ],
+        uvs: vec![[0.0, 0.0], [0.0, 1.0], [1.0, 1.0], [1.0, 0.0]],
         indices: vec![
-            0,3,1,1,3,2 // right (+x)
+            0, 3, 1, 1, 3, 2, // right (+x)
         ],
         enabled: false,
     };
-    let left = Side { 
+    let left = Side {
         positions: vec![
             // left     (-x)
             [-0.5, -0.5, -0.5],
@@ -115,14 +100,9 @@ pub fn generate_cube(enabled_faces: Option<Vec<usize>>) -> Cube {
             [-1.0, 0.0, 0.0],
             [-1.0, 0.0, 0.0],
         ],
-        uvs: vec![
-            [0.0, 0.0],
-            [0.0, 1.0],
-            [1.0, 1.0],
-            [1.0, 0.0],
-        ],
+        uvs: vec![[0.0, 0.0], [0.0, 1.0], [1.0, 1.0], [1.0, 0.0]],
         indices: vec![
-            0,1,3,1,2,3 // left (-x)
+            0, 1, 3, 1, 2, 3, // left (-x)
         ],
         enabled: false,
     };
@@ -141,14 +121,9 @@ pub fn generate_cube(enabled_faces: Option<Vec<usize>>) -> Cube {
             [0.0, 0.0, 1.0],
             [0.0, 0.0, 1.0],
         ],
-        uvs: vec![
-            [0.0, 0.0],
-            [0.0, 1.0],
-            [1.0, 1.0],
-            [1.0, 0.0],
-        ],
+        uvs: vec![[0.0, 0.0], [0.0, 1.0], [1.0, 1.0], [1.0, 0.0]],
         indices: vec![
-            0,3,1,1,3,2 // back (+z)
+            0, 3, 1, 1, 3, 2, // back (+z)
         ],
         enabled: false,
     };
@@ -167,26 +142,20 @@ pub fn generate_cube(enabled_faces: Option<Vec<usize>>) -> Cube {
             [0.0, 0.0, -1.0],
             [0.0, 0.0, -1.0],
         ],
-        uvs: vec![
-            [0.0, 0.0],
-            [0.0, 1.0],
-            [1.0, 1.0],
-            [1.0, 0.0],
-        ],
+        uvs: vec![[0.0, 0.0], [0.0, 1.0], [1.0, 1.0], [1.0, 0.0]],
         indices: vec![
-            0,1,3,1,2,3, // forward (-z)
+            0, 1, 3, 1, 2, 3, // forward (-z)
         ],
         enabled: false,
     };
-   
 
     let mut cube_faces = vec![
-        top, // +y
+        top,    // +y
         bottom, // -y
-        right, // +x
-        left, // -x
-        back, // +z
-        front, // -z
+        right,  // +x
+        left,   // -x
+        back,   // +z
+        front,  // -z
     ];
 
     if let Some(faces) = enabled_faces {
@@ -205,9 +174,9 @@ pub fn generate_cube(enabled_faces: Option<Vec<usize>>) -> Cube {
             positions.append(&mut face.positions);
             normals.append(&mut face.normals);
             uvs.append(&mut face.uvs);
-            face.indices = face.indices.iter().map(|x| x+size).collect::<Vec<u32>>();
+            face.indices = face.indices.iter().map(|x| x + size).collect::<Vec<u32>>();
             indices.append(&mut face.indices);
-        } 
+        }
     }
     Cube {
         positions: positions.clone(),
@@ -217,11 +186,11 @@ pub fn generate_cube(enabled_faces: Option<Vec<usize>>) -> Cube {
     }
 }
 
-pub fn generate_chunk_mesh(chunk_data:Vec<Vec<Vec<Cube>>>) -> Mesh {
-    let mut positions: Vec<[f32;3]> = vec![];
-    let mut normals: Vec<[f32;3]>  = vec![];
-    let mut uvs: Vec<[f32;2]>  = vec![];
-    let mut indices: Vec<u32>  = vec![];
+pub fn generate_chunk_mesh(chunk_data: Vec<Vec<Vec<Cube>>>) -> Mesh {
+    let mut positions: Vec<[f32; 3]> = vec![];
+    let mut normals: Vec<[f32; 3]> = vec![];
+    let mut uvs: Vec<[f32; 2]> = vec![];
+    let mut indices: Vec<u32> = vec![];
     for x in 0..chunk_data.len() {
         for y in 0..chunk_data[x].len() {
             for z in 0..chunk_data[x][y].len() {
@@ -235,7 +204,7 @@ pub fn generate_chunk_mesh(chunk_data:Vec<Vec<Vec<Cube>>>) -> Mesh {
                 positions.append(&mut cube.positions);
                 normals.append(&mut cube.normals);
                 uvs.append(&mut cube.uvs);
-                cube.indices = cube.indices.iter().map(|x| x+size).collect::<Vec<u32>>();
+                cube.indices = cube.indices.iter().map(|x| x + size).collect::<Vec<u32>>();
                 indices.append(&mut cube.indices);
             }
         }

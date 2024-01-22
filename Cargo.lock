@@ -555,6 +555,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "bevy_fps_controller"
+version = "0.2.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "dd516a217eecb1e699e43aa45c8a3ba1280e677edf74828c3891b97a0d04734d"
+dependencies = [
+ "bevy",
+ "bevy_rapier3d",
+]
+
+[[package]]
 name = "bevy_gilrs"
 version = "0.12.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1087,6 +1097,7 @@ name = "bevycraft"
 version = "0.1.0"
 dependencies = [
  "bevy",
+ "bevy_fps_controller",
  "bevy_rapier3d",
 ]
 
