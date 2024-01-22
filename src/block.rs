@@ -191,6 +191,8 @@ pub fn generate_chunk_mesh(chunk_data: Vec<Vec<Vec<Cube>>>) -> Mesh {
     let mut normals: Vec<[f32; 3]> = vec![];
     let mut uvs: Vec<[f32; 2]> = vec![];
     let mut indices: Vec<u32> = vec![];
+
+    // for each cube in each axis, append its data to the chunk
     for x in 0..chunk_data.len() {
         for y in 0..chunk_data[x].len() {
             for z in 0..chunk_data[x][y].len() {
@@ -204,6 +206,8 @@ pub fn generate_chunk_mesh(chunk_data: Vec<Vec<Vec<Cube>>>) -> Mesh {
                 positions.append(&mut cube.positions);
                 normals.append(&mut cube.normals);
                 uvs.append(&mut cube.uvs);
+                // indices always start at 0 so appending the size makes them point to the right
+                // vertex
                 cube.indices = cube.indices.iter().map(|x| x + size).collect::<Vec<u32>>();
                 indices.append(&mut cube.indices);
             }
